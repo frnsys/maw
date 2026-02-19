@@ -12,7 +12,7 @@ use bpaf::Bpaf;
 use sha1::{Digest, Sha1};
 use tokio::{fs::OpenOptions, io::AsyncWriteExt};
 
-#[derive(Clone, Debug, Bpaf)]
+#[derive(Bpaf)]
 #[bpaf(options, version)]
 /// Server for hili.
 struct Args {
@@ -33,7 +33,6 @@ struct Args {
     key: String,
 }
 
-#[derive(Clone)]
 struct AppState {
     key: String,
     upload_dir: PathBuf,
